@@ -1,0 +1,26 @@
+.header {
+  background-color: rgb(33 33 186 / 87%);
+  height: 50px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.input {
+  width: 300px;
+  height: 35px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 40px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: white;
+  margin-left: 3px;
+}
