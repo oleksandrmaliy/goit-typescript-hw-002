@@ -1,9 +1,9 @@
-import { FallingLines } from "react-loader-spinner";
+import { Grid } from 'react-loader-spinner';
 
 const Loader = () => {
   return (
     <div>
-      <FallingLines color="#4fa94d" width="100" visible={true} />
+      <Grid color="#4fa94d" width="100" visible={true} />
     </div>
   );
 };

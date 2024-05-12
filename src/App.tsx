@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { requesForImages } from "./helpers/api";
-import SearchBar from "./components/SearchBar/SearchBar";
-import ImageGallery from "./components/ImageGallery/ImageGallery";
-import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "./components/ImageModal/ImageModal";
-import Modal from "react-modal";
-import { animateScroll } from "react-scroll";
-import { Image } from "./types";
+import { useEffect, useState } from 'react';
+import { requesForImages } from './components/API/api';
+import SearchBar from './components/SearchBar/SearchBar';
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import Loader from './components/Loader/Loader';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import ImageModal from './components/ImageModal/ImageModal';
+import Modal from 'react-modal';
+import { animateScroll } from 'react-scroll';
+import { Image } from './types';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const options = {
   duration: 500,
@@ -26,7 +26,7 @@ const App = () => {
   const [images, setImages] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>('');
   const [page, setPage] = useState<number>(0);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [modalImage, setModalImage] = useState<Image | null>(null);
@@ -38,7 +38,7 @@ const App = () => {
       try {
         setIsLoading(true);
         const data: Results = await requesForImages(query, page);
-        setImages((prevImages) => [...prevImages, ...data.results]);
+        setImages(prevImages => [...prevImages, ...data.results]);
       } catch (error) {
         setIsError(true);
       } finally {
@@ -58,6 +58,7 @@ const App = () => {
   };
 
   const handleSearch = (data: string): void => {
+    setImages([]);
     setPage(1);
     setQuery(data);
   };
